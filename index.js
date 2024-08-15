@@ -33,10 +33,13 @@ app.use(cookieParser());
 
 app.use(
 	cors({
-		origin: "*",
+		origin: "*", // or specify your frontend URL, e.g., "http://localhost:3000"
+		methods: "GET,POST,PUT,DELETE,OPTIONS",
+		allowedHeaders: "Content-Type,Authorization",
 		credentials: true,
 	})
 );
+
 app.use(
 	fileUpload({
 		useTempFiles: true,
