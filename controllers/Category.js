@@ -77,10 +77,10 @@ exports.categoryPageDetails = async (req, res) => {
     const categoriesExceptSelected = await Category.find({
       _id: { $ne: categoryId },
     })
-    let differentCategory = await Category.findOne(
-      categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
-        ._id
-    )
+    // let differentCategory = await Category.findOne(
+    //   categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
+    //     ._id
+    // )
       .populate({
         path: "courses",
         match: { status: "Published" },
@@ -103,7 +103,7 @@ exports.categoryPageDetails = async (req, res) => {
       success: true,
       data: {
         selectedCategory,
-        differentCategory,
+        // differentCategory,
         mostSellingCourses,
       },
     })
